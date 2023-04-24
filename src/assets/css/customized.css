@@ -1,4 +1,13 @@
 .rounded-logo{
     border-radius: 50%;  
+}
 
+
+/*SliderBar */
+.text-center{
+    text-align: center;
+}
+
+.product-image{
+    width: 200px;
 }

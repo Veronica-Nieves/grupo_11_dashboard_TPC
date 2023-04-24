@@ -1,5 +1,14 @@
 import React from 'react';
-import image from '../assets/images/logo.png';
+import {Link, Route, Switch} from 'react-router-dom';
+import image from '../assets/images/logo.png'
+
+/* Importamos componentes */
+import ContentWrapper from './ContentWrapper';
+import ProductTable from './ProductTable';
+import SpeciesInDb from './SpeciesInDb';
+
+
+
 
 function SideBar(){
     return(
@@ -7,7 +16,7 @@ function SideBar(){
             {/*<!-- Sidebar -->*/}
             <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                {/*<!-- Sidebar - Brand -->*/}
+                {/*<!-- Sidebar -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
                         <img className="w-50 rounded-logo" src={image} alt="The Pets Club"/>
@@ -19,46 +28,66 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-paw"></i>
-                        <span>The Pets Club </span>
+                        <span className="text-center">The Pets Club </span>
                         <i className="fas fa-fw fa-paw"></i>
-                    </a>
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider"/>
 
+
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">Secciones</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
+                {/*<!-- Nav Item - Productos -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="/">
+                    <Link className="nav-link collapsed" to="/ProductTable">
                         <i className="fas fa-fw fa-folder"></i>
-                        <i className="fas fa-fw fa-bag-seedling"></i>
                         <span>Productos</span>
-                    </a>
+                    </Link>
                 </li>
 
-                {/*<!-- Nav Item - Charts -->*/}
+
+                {/*<!-- Nav Item - Especies -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/SpeciesInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Especies</span></a>
+                        <span>Especies</span>
+                    </Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
+
+                {/*<!-- Nav Item - Usuarios -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tablas</span></a>
+                        <span>Usuarios</span>
+                    </Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
             {/*<!-- End of Sidebar -->*/}
+
+
+            {/*<!-- Routes -->*/}
+            <Switch>
+                <Route exact path="/">
+                    <ContentWrapper />
+                </Route>
+                <Route path="/ProductTable">
+                    <ProductTable />
+                </Route>
+                <Route path="/SpeciesInDb">
+                    <SpeciesInDb />
+                </Route>
+                {/*<!--<Route component={NotFound} /> -->*/}
+            </Switch>
+
             
         </React.Fragment>
     )

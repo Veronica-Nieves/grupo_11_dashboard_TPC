@@ -32,7 +32,7 @@ class ProductTable extends Component{
     render(){
         return (
             <React.Fragment>
-            <h1 className="h3 mb-2 text-gray-800 ">Catálogo de productos</h1>
+            <h1 className="h3 mb-2 text-gray-800">Catálogo de productos</h1>
             
             {/*<!-- Tabla de productos -->*/}
             <div className="card shadow mb-4">
