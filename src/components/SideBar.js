@@ -45,7 +45,7 @@ function SideBar(){
                 {/*<!-- Nav Item - Productos -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/ProductTable">
-                        <i className="fas fa-fw fa-folder"></i>
+                        <i className="fas fa-fw fa-box-open"></i>
                         <span>Productos</span>
                     </Link>
                 </li>
@@ -54,7 +54,7 @@ function SideBar(){
                 {/*<!-- Nav Item - Especies -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/SpeciesInDb">
-                        <i className="fas fa-fw fa-chart-area"></i>
+                        <i className="fas fa-fw fa-dog"></i>
                         <span>Especies</span>
                     </Link>
                 </li>
@@ -63,7 +63,7 @@ function SideBar(){
                 {/*<!-- Nav Item - Usuarios -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/">
-                        <i className="fas fa-fw fa-table"></i>
+                        <i className="fas fa-user"></i>
                         <span>Usuarios</span>
                     </Link>
                 </li>

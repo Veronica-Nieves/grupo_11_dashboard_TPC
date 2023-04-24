@@ -9,14 +9,14 @@ let products = {
     color:   "primary",
     name: "Productos",
     valor: 0,
-    icono: "fas fa-film",
+    icono: "fas fa-fw fa-box-open",
     }
 
 let species ={
     color:   "primary",
     name: "Especies",
     valor: 0,
-    icono: "fas fa-award",
+    icono: "fas fa-fw fa-dog",
     }
 
 let users = {
@@ -39,13 +39,13 @@ class ContentScoreCard extends Component{
                     color: "primary",
                     name: "Productos",
                     valor: 1,
-                    icono: "fas fa.shield-dog",
+                    icono: "fas fa-fw fa-box-open",
                 },
                 {
                     color: "primary",
                     name: "Especies",
                     valor: 2,
-                    icono: "fas fa-award",
+                    icono: "fas fa-fw fa-dog",
                 },
                 {
                     color: "primary",

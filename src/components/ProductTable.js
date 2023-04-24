@@ -44,8 +44,8 @@ class ProductTable extends Component{
                                     <th>Sku</th>
                                     <th>Nombre</th>
                                     <th>Especie</th>
+                                    <th>Categoría</th>
                                     <th>Precio</th>
-                                    <th>% Descuento</th>
                                     <th>Inventario</th>
                                 </tr>
                             </thead>
@@ -62,8 +62,8 @@ class ProductTable extends Component{
                                     <th>Sku</th>
                                     <th>Nombre</th>
                                     <th>Especie</th>
+                                    <th>Categoría</th>
                                     <th>Precio</th>
-                                    <th>% Descuento</th>
                                     <th>Inventario</th>
                                 </tr>
                             </tfoot>

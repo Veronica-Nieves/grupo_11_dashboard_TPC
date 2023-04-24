@@ -6,10 +6,10 @@ function ProductRowDetail (props){
             <tr>
                 <td>{props.sku}</td>
                 <td>{props.name}</td>
-                <td>{props.name}</td>
+                <td>{props.specie}</td>
+                <td>{props.category}</td>
                 <td>{props.price}</td>
-                <td>{props.discount_price}</td>
-                <td>{props.pieces}</td>
+                <td>{props.piece}</td>
             </tr>
         </React.Fragment>
     )
