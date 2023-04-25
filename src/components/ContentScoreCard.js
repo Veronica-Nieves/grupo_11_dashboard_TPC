@@ -35,46 +35,59 @@ class ContentScoreCard extends Component{
         super()
         this.state ={
                 genresCount: "",
-                scores: [{
-                    color: "primary",
+                scores: [],
+                productsScore: {
+                    color: "success",
                     name: "Productos",
                     valor: 1,
                     icono: "fas fa-fw fa-box-open",
                 },
-                {
-                    color: "primary",
+                speciesScore: {
+                    color: "success",
                     name: "Especies",
                     valor: 2,
                     icono: "fas fa-fw fa-dog",
                 },
-                {
-                    color: "primary",
+                usersScore:{
+                    color: "success",
                     name: "Usuarios",
                     valor: 3,
                     icono: "fas fa-user",
                     }
-            ]}
+            }
     }
 
     
-    //Montaje: Llamada de las api para consumir datos
-    
+    /* Montaje: Llamada de las api para consumir datos */
     componentDidMount(){
-        fetch('/api/genres')
+        /* Estraemos Score de Productos */
+        fetch('/api/products')
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(genres =>{
-            this.setState({genresCount: genres.meta.total})
-            
-        
-            // solo para comprobar que si trae los datos
-            console.log("Extraemos datos de la Api: ")
-            // console.log(this.state.genresCount) 
-            console.log(this.state.scores[0].valor) 
+        .then(products =>{
+            this.setState({productsScore: products.count})
+        /* Extraemos Score de Species */
+        fetch('/api/species')
+            .then(respuesta =>{
+                return respuesta.json()
+            })
+            .then(species =>{
+                this.setState({speciesScore: species.count})
+        /* Extraemos Score de Usuarios */
+        fetch('/api/users')
+            .then(respuesta =>{
+                return respuesta.json()
+            })
+            .then(users =>{
+                this.setState({usersScore: users.count})
+                this.state.scores = [this.state.productsScore, this.state.speciesScore, this.state.usersScore];
+        })
+        })
         })
         .catch(error => console.log(error))
     }
+
     
 
     
@@ -87,7 +100,7 @@ class ContentScoreCard extends Component{
         {/*<!-- Renderizamos el contenido de las 3 Score Card -->*/}
         <div className="row">
             {
-                this.state.scores.map((score,index)=>{
+                scoreExample.map((score,index)=>{
                     return <ScoreCard  {...score}  key= {index+"-score"}/>
                 })
             }      

@@ -1,26 +1,26 @@
-/* --- Componente que muestra el listado de productos --- */
+/* --- Componente que muestra la tabla de usuarios --- */
 import React, {Component} from 'react';
 
 //Importar nuestro componente
-import ProductRowDetail from './ProductRowDetail';
+import UserRowDetail from './UserRowDetail';
 
-class ProductTable extends Component{
+class UserTable extends Component{
     constructor(){
         super()
         this.state ={
-            products : []
+            users : []
         }
     }
     
-    // Al montar el componente extraemos los datos de la api con url: /api/products
+    // Al montar el componente extraemos los datos de la api con url: /api/users
     componentDidMount(){
-        fetch('/api/products')
+        fetch('/api/users')
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(products =>{
-            //console.log(products)
-            this.setState({products: products.products})
+        .then(users =>{
+            // console.log(users)
+            this.setState({users: users.users})
         })
         .catch(error => console.log(error))
 
@@ -30,39 +30,33 @@ class ProductTable extends Component{
     render(){
         return (
             <React.Fragment>
-            <h1 className="h3 mb-2 text-gray-800">Catálogo de productos</h1>
+            <h1 className="h3 mb-2 text-gray-800">Directorio de Usuarios</h1>
             
-            {/*<!-- Tabla de productos -->*/}
+            {/*<!-- Tabla de uuarios -->*/}
             <div className="card shadow mb-4">
                 <div className="card-body">
                     <div className="table-responsive">
                         <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Sku</th>
+                                    <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Especie</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Inventario</th>
+                                    <th>Email</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     //console.log(this.state.products)
-                                    this.state.products.map((product,index)=>{
-                                        return <ProductRowDetail  {...product} key={index}  />
+                                    this.state.users.map((user,index)=>{
+                                        return <UserRowDetail  {...user} key={index}  />
                                     })
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Sku</th>
+                                    <th>Id</th>
                                     <th>Nombre</th>
-                                    <th>Especie</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Inventario</th>
+                                    <th>Email</th>
                                 </tr>
                             </tfoot>
                             
@@ -77,4 +71,4 @@ class ProductTable extends Component{
     )
     }
 }
-export default ProductTable;
+export default UserTable;

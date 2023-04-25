@@ -6,6 +6,7 @@ import image from '../assets/images/logo.png'
 import ContentWrapper from './ContentWrapper';
 import ProductTable from './ProductTable';
 import SpeciesInDb from './SpeciesInDb';
+import UserTable from './UserTable';
 
 
 
@@ -62,7 +63,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Usuarios -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link" to="/UserTable">
                         <i className="fas fa-user"></i>
                         <span>Usuarios</span>
                     </Link>
@@ -84,6 +85,9 @@ function SideBar(){
                 </Route>
                 <Route path="/SpeciesInDb">
                     <SpeciesInDb />
+                </Route>
+                <Route path="/UserTable">
+                    <UserTable />
                 </Route>
                 {/*<!--<Route component={NotFound} /> -->*/}
             </Switch>

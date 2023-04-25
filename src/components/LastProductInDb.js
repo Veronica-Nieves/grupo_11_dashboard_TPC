@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
-import image from '../assets/images/admin.png';
-
+import image from '../assets/images/product.png';
 
 export class LastProductInDb extends Component {
     constructor(){
         super()
         this.state ={
-            LastProduct : []
+            LastProduct : [],
         }
     }
     
@@ -18,10 +17,26 @@ export class LastProductInDb extends Component {
             return respuesta.json()
         })
         .then(products =>{
-            console.log(products)
-            this.setState({LastProduct: products.products})
-            console.log("Last Product")
-            console.log(this.state.LastProduct)
+            /* Identificamos el Id del ultimo producto */
+            let lastId = 0;
+            products.products.map((product) =>{
+                if (product.id > lastId){
+                    lastId = product.id
+                }
+            })
+            //console.log(lastId)
+            /* Ingresamos al detalle del ultimo producto */
+            fetch('/api/products/'+lastId.toString()) 
+            .then(respuesta =>{
+                return respuesta.json()
+            })
+            .then(lastProduct =>{
+                this.setState({LastProduct: lastProduct.product})
+                console.log(this.state.LastProduct)
+            })
+            /* Extraemos la imagen */
+            
+
         })
         .catch(error => console.log(error))
 
@@ -40,7 +55,8 @@ export class LastProductInDb extends Component {
                     <div className="text-center">
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 product-image" style={{width: 40 +'rem'}} src={image} alt=" The Pets Club "/>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
+                    <p className="m-0 font-weight-bold text-gray-800">{this.state.LastProduct.name}</p>
+                    <p>{this.state.LastProduct.description}</p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalles</a>
                 </div>
             </div>
