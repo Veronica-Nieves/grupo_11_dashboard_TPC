@@ -1,112 +1,86 @@
 import React, {Component} from 'react';
 
-//Importar nuestro componente
+//Importar nuestro componentes
 import ScoreCard from './ScoreCard';
 
-
-/* ---------- Definición de Scores de prueba -------- */
-let products = {
-    color:   "primary",
-    name: "Productos",
-    valor: 0,
-    icono: "fas fa-fw fa-box-open",
-    }
-
-let species ={
-    color:   "primary",
-    name: "Especies",
-    valor: 0,
-    icono: "fas fa-fw fa-dog",
-    }
-
-let users = {
-    color:   "primary",
-    name: "Usuarios",
-    valor: 0,
-    icono: "fas fa-user",
-    }
-
-let scoreExample = [products, species, users];
-/* ----------Fin definicion de scores de ejemplo ---------*/
-
-
+//Montamos componente
 class ContentScoreCard extends Component{
     constructor(){
         super()
         this.state ={
-                genresCount: "",
-                scores: [],
-                productsScore: {
-                    color: "success",
-                    name: "Productos",
-                    valor: 1,
-                    icono: "fas fa-fw fa-box-open",
-                },
-                speciesScore: {
-                    color: "success",
-                    name: "Especies",
-                    valor: 2,
-                    icono: "fas fa-fw fa-dog",
-                },
-                usersScore:{
-                    color: "success",
-                    name: "Usuarios",
-                    valor: 3,
-                    icono: "fas fa-user",
-                    }
+                scores: []
             }
-    }
-
+        }
     
     /* Montaje: Llamada de las api para consumir datos */
     componentDidMount(){
+
         /* Estraemos Score de Productos */
         fetch('/api/products')
         .then(respuesta =>{
             return respuesta.json()
         })
         .then(products =>{
-            this.setState({productsScore: products.count})
+            let apiScores = []
+            let productsScore = {
+                color: "success",
+                name: "Productos",
+                valor: products.count,
+                icono: "fas fa-fw fa-box-open",
+            }
+            apiScores.push(productsScore)
+
+
+
         /* Extraemos Score de Species */
         fetch('/api/species')
             .then(respuesta =>{
                 return respuesta.json()
             })
             .then(species =>{
-                this.setState({speciesScore: species.count})
+                let speciesScore = {
+                    color: "success",
+                    name: "Especies",
+                    valor: species.count,
+                    icono: "fas fa-fw fa-dog",
+                }
+                apiScores.push(speciesScore)
+
+
         /* Extraemos Score de Usuarios */
         fetch('/api/users')
             .then(respuesta =>{
                 return respuesta.json()
             })
             .then(users =>{
-                this.setState({usersScore: users.count})
-                this.state.scores = [this.state.productsScore, this.state.speciesScore, this.state.usersScore];
+                let usersScore = {
+                    color: "success",
+                    name: "Usuarios",
+                    valor: users.count,
+                    icono: "fas fa-user",
+                }
+                apiScores.push(usersScore)
+                this.setState({
+                    scores: apiScores
+                })
+                //console.log("NUEVOS scores")
+                //console.log(this.state.scores)
         })
         })
         })
         .catch(error => console.log(error))
     }
-
     
-
-    
-
-
     render(){
     return(
         <React.Fragment>
-
-        {/*<!-- Renderizamos el contenido de las 3 Score Card -->*/}
         <div className="row">
             {
-                scoreExample.map((score,index)=>{
-                    return <ScoreCard  {...score}  key= {index+"-score"}/>
-                })
+            this.state.scores.map((score,index)=>{
+                return <ScoreCard  {...score}  key= {index}/>
+            })
             }      
         </div>
-        {/*<!-- Fin de renderizar las score cards-->*/}
-
         </React.Fragment>
     )
     }

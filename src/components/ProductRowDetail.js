@@ -6,8 +6,8 @@ function ProductRowDetail (props){
             <tr>
                 <td>{props.sku}</td>
                 <td>{props.name}</td>
-                <td>{props.species}</td>
-                <td>{props.category}</td>
+                <td>{props.relaciones.specie.name}</td>
+                <td>{props.relaciones.category.name}</td>
                 <td>{props.price}</td>
                 <td>{props.piece}</td>
             </tr>

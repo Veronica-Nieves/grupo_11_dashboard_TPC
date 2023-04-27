@@ -1,7 +1,6 @@
 import React from 'react';
 
 /* Importamos componentes */
-import ContentRowMovies from './ContentRowMovies';
 import ContentScoreCard from './ContentScoreCard';
 
 
@@ -16,7 +15,6 @@ function ContentRowTop(){
 					</div>
 				
 					{/*<!-- Content Score Cards -->*/}
-					<ContentRowMovies />
 					<ContentScoreCard />
 				
 				</div>

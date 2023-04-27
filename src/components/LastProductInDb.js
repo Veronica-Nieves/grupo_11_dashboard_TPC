@@ -35,7 +35,6 @@ export class LastProductInDb extends Component {
                 console.log(this.state.LastProduct)
             })
             /* Extraemos la imagen */
-            
 
         })
         .catch(error => console.log(error))
