@@ -1,27 +1,24 @@
-//Trabajando con componentes de estado - Clases
-//Apis  - Eventos
 import React, {Component} from 'react';
 
 //Importar nuestro componente
-import Genre from './Genre';
+import Category from './Category';
 
-class GenresInDb extends Component{
+export class CategoriesInDb extends Component{
     constructor(){
         super()
         this.state ={
-            genresList : []
+            categoriesList : []
         }
     }
-    //Compomentes Ciclo de vida - Montar - Actualizar - Desmontar
+    
     //Montaje
     componentDidMount(){
-        fetch('/api/genres')
+        fetch('/api/categories') 
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(genres =>{
-            //console.log(genres)
-            this.setState({genresList: genres.data})
+        .then(categories =>{
+            this.setState({categoriesList: categories.categories}) // se debe cambiar data por species
         })
         .catch(error => console.log(error))
 
@@ -37,18 +34,20 @@ class GenresInDb extends Component{
     render(){
         return (
             <React.Fragment>
-                {/*<!-- Genres in DB -->*/}
-                <div className="col-lg-6 mb-4">						
+                {/*<!-- Species in DB -->*/}
+                {/*<div className="col-lg-6 mb-4">*/}	
+                <div className="col-lg-6 mb-4 card-cat">				
                     <div className="card shadow mb-4 " >
                         <div className="card-header py-3">
-                            <h6  onMouseOver = { () => this.fondo()}  className="m-0 font-weight-bold text-gray-800 titulo">Genres in Data Base</h6>
+                            <h6 className="m-0 font-weight-bold text-gray-800 titulo">Categorias</h6>
                         </div>
                         <div className="card-body fondoCaja">
+
                             <div  className="row">
                                 {
-                                    //console.log(this.state.genresList)
-                                    this.state.genresList.map((genre,index)=>{
-                                        return  <Genre  {...genre}  key={index} />
+                                    //console.log(this.state.speciesList)
+                                    this.state.categoriesList.map((category,index)=>{
+                                        return  <Category  {...category}  key={category+"specie"} />
                                     })
                                 }
                             </div>
@@ -60,4 +59,4 @@ class GenresInDb extends Component{
     )
     }
 }
-export default GenresInDb;
+export default CategoriesInDb;

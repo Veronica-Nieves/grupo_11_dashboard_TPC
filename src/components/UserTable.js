@@ -30,43 +30,43 @@ class UserTable extends Component{
     render(){
         return (
             <React.Fragment>
-            <h1 className="h3 mb-2 text-gray-800">Directorio de Usuarios</h1>
-            
-            {/*<!-- Tabla de uuarios -->*/}
-            <div className="card shadow mb-4">
-                <div className="card-body">
-                    <div className="table-responsive">
-                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Email</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    //console.log(this.state.products)
-                                    this.state.users.map((user,index)=>{
-                                        return <UserRowDetail  {...user} key={index}  />
-                                    })
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Email</th>
-                                </tr>
-                            </tfoot>
-                            
-                        </table>
+            <div className="table-wrap">
+                <h1 className="h3 mb-2 text-gray-800 tatle-title">Directorio de Usuarios</h1>
+                
+                {/*<!-- Tabla de uuarios -->*/}
+                <div className="card shadow mb-4">
+                    <div className="card-body">
+                        <div className="table-responsive">
+                            <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        //console.log(this.state.products)
+                                        this.state.users.map((user,index)=>{
+                                            return <UserRowDetail  {...user} key={index}  />
+                                        })
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </tfoot>
+                                
+                            </table>
+                        </div>
                     </div>
                 </div>
-        </div>
-
-
-    
+            
+            </div>
     </React.Fragment>
     )
     }

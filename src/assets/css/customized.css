@@ -11,3 +11,52 @@
 .product-image{
     width: 200px;
 }
+
+
+/*Species*/
+.species-card{
+    background-color: #FFB100;
+    border-radius: 8px;
+    border: none;
+}
+
+/*Categories*/
+.categories-card{
+    background-color: #569494;
+    border-radius: 8px;
+    border: none;
+}
+
+
+/*tables*/
+.table-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+}
+.tatle-title{
+    padding: 0 20px;
+}
+
+
+
+/* File media*/
+.middle-row{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+}
+
+.categories-species-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: column;
+}
+
+.wd100{
+    width:100%;
+}
+
+
+
+

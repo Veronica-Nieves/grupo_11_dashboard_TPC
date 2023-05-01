@@ -6,11 +6,11 @@ import image from '../assets/images/logo.png'
 import ContentWrapper from './ContentWrapper';
 import ProductTable from './ProductTable';
 import SpeciesInDb from './SpeciesInDb';
+import CategoriesInDb from './CategoriesInDb';
 import UserTable from './UserTable';
 
 
-
-
+/*Definimos componente SlideBar*/
 function SideBar(){
     return(
         <React.Fragment>
@@ -61,6 +61,15 @@ function SideBar(){
                 </li>
 
 
+                {/*<!-- Nav Item - Categorias -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/CategoriesInDb">
+                        <i className="fas fa-fw fa-circle"></i>
+                        <span>Categorias</span>
+                    </Link>
+                </li>
+
+
                 {/*<!-- Nav Item - Usuarios -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/UserTable">
@@ -85,6 +94,9 @@ function SideBar(){
                 </Route>
                 <Route path="/SpeciesInDb">
                     <SpeciesInDb />
+                </Route>
+                <Route path="/CategoriesInDb">
+                    <CategoriesInDb />
                 </Route>
                 <Route path="/UserTable">
                     <UserTable />

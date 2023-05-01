@@ -30,50 +30,49 @@ class ProductTable extends Component{
     render(){
         return (
             <React.Fragment>
-            <h1 className="h3 mb-2 text-gray-800">Catálogo de productos</h1>
-            
-            {/*<!-- Tabla de productos -->*/}
-            <div className="card shadow mb-4">
-                <div className="card-body">
-                    <div className="table-responsive">
-                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Sku</th>
-                                    <th>Nombre</th>
-                                    <th>Especie</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Inventario</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    //console.log(this.state.products)
-                                    this.state.products.map((product,index)=>{
-                                        return <ProductRowDetail  {...product} key={index}  />
-                                    })
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Sku</th>
-                                    <th>Nombre</th>
-                                    <th>Especie</th>
-                                    <th>Categoría</th>
-                                    <th>Precio</th>
-                                    <th>Inventario</th>
-                                </tr>
-                            </tfoot>
-                            
-                        </table>
+            <div className="table-wrap">
+                <h1 className="h3 text-gray-800 tatle-title">Catálogo de productos</h1>
+                
+                {/*<!-- Tabla de productos -->*/}
+                <div className="card shadow mb-4">
+                    <div className="card-body">
+                        <div className="table-responsive">
+                            <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Sku</th>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                        <th>Categoría</th>
+                                        <th>Precio</th>
+                                        <th>Inventario</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        //console.log(this.state.products)
+                                        this.state.products.map((product,index)=>{
+                                            return <ProductRowDetail  {...product} key={index}  />
+                                        })
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Sku</th>
+                                        <th>Nombre</th>
+                                        <th>Especie</th>
+                                        <th>Categoría</th>
+                                        <th>Precio</th>
+                                        <th>Inventario</th>
+                                    </tr>
+                                </tfoot>
+                                
+                            </table>
+                        </div>
                     </div>
                 </div>
-        </div>
-
-
-    
-    </React.Fragment>
+            </div>
+            </React.Fragment>
     )
     }
 }

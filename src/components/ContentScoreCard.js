@@ -45,6 +45,7 @@ class ContentScoreCard extends Component{
                     icono: "fas fa-fw fa-dog",
                 }
                 apiScores.push(speciesScore)
+                
 
 
         /* Extraemos Score de Usuarios */
